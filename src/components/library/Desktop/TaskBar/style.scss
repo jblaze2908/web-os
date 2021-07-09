@@ -3,6 +3,8 @@
     user-select: none;
     position: fixed;
     width: 100%;
+    align-items: center;
+    justify-content: space-between;
     height: 3rem;
     bottom: 0;
     backdrop-filter: blur(4px);
@@ -10,14 +12,19 @@
     z-index: 2;
   }
   &__left {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-left: 1rem;
+    &-task {
+      display: flex;
+    }
+  }
+  &__center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
   &__right {
-    position: absolute;
-    right: 0;
+    // position: absolute;
+    // right: 0;
     height: 100%;
     width: 14rem;
     &-icons {

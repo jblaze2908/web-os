@@ -1,17 +1,23 @@
 import React, { Component } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { focusApp, dragApp, exitApp, minimizeApp } from "../../../../actions";
+import {
+  focusApp,
+  dragApp,
+  exitApp,
+  minimizeApp,
+} from "../../../../actions/tasks";
 class DraggableContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      position: { top: 16, left: 16 },
       mousePos: { x: null, y: null },
       dragging: false,
-      id: "",
     };
+    this.task =
+      this.props.taskManager.currentTasks.find(
+        (task) => task._id === this.props._id
+      ) || {};
   }
   draggableEl;
   flag = false;
@@ -19,8 +25,6 @@ class DraggableContainer extends Component {
     return this.props.component(props);
   };
   componentDidMount = () => {
-    let id = uuidv4();
-    this.setState({ id });
     document.addEventListener("click", this.checkClickOutside);
   };
   componentWillUnmount = () => {
@@ -67,6 +71,8 @@ class DraggableContainer extends Component {
   };
   dragContainer = (e) => {
     if (!this.state.dragging || !this.flag) return;
+    const { position } = this.task;
+
     let diffX = this.state.mousePos.x - e.pageX;
     let diffY = this.state.mousePos.y - e.pageY;
     this.setState({
@@ -74,10 +80,11 @@ class DraggableContainer extends Component {
         x: e.pageX,
         y: e.pageY,
       },
-      position: {
-        top: this.state.position.top - diffY,
-        left: this.state.position.left - diffX,
-      },
+    });
+    this.props.dragApp({
+      _id: this.props._id,
+      top: position.top - diffY,
+      left: position.left - diffX,
     });
     e.stopPropagation();
     e.preventDefault();
@@ -89,12 +96,11 @@ class DraggableContainer extends Component {
     this.setState({ maximized: false });
   };
   focus = (e) => {
-    this.props.focusApp(this.state.id);
+    this.props.focusApp(this.props._id);
   };
   render() {
-    let task = this.props.taskManager.currentTasks.find((task) => task._id === this.state.id) || {};
     const { focusedEl } = this.props.taskManager;
-    const { position } = task;
+    const { position } = this.task;
     return (
       <div
         className="movable__container"
@@ -103,9 +109,7 @@ class DraggableContainer extends Component {
           top: this.state.maximized ? 0 : position.top,
           left: this.state.maximized ? 0 : position.left,
           zIndex:
-            this.state.maximized || focusedEl === this.state.id
-              ? 999
-              : 1,
+            this.state.maximized || focusedEl === this.props._id ? 999 : 1,
           width: this.state.maximized ? "100%" : null,
           height: this.state.maximized ? "100%" : null,
         }}
@@ -116,6 +120,7 @@ class DraggableContainer extends Component {
           maximized={this.state.maximized}
           maximize={this.maximize}
           minimize={this.minimize}
+          _id={this.props._id}
         />
       </div>
     );
@@ -129,7 +134,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      focusApp, dragApp, exitApp, minimizeApp
+      focusApp,
+      dragApp,
+      exitApp,
+      minimizeApp,
     },
     dispatch
   );

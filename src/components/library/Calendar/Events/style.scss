@@ -1,15 +1,16 @@
 .events {
   &__container {
-    // background-color: #1d2024;
-    background: linear-gradient(rgb(61, 61, 65) 0%, #2c2e31 100%);
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+
+    background-color: #1d2024b0;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.479);
     width: calc(100% - 32.5rem);
   }
   &__date {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    color: #899ee6;
+    color: #05c0c7;
     height: 9rem;
     &-date {
       letter-spacing: -1rem;
@@ -43,8 +44,7 @@
       text-align: center;
       display: flex;
       border-radius: 4px;
-      background-color: #2e50be;
-      background: linear-gradient(#2e50be, #5b78d4);
+      background: linear-gradient(#05c0c7, #086164);
       align-items: center;
       box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
       justify-content: center;

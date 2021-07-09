@@ -3,7 +3,8 @@
     // border: 1px solid red;
     width: 32.5rem;
     height: 100%;
-    background: linear-gradient(#292a2c 0%, #2a2e31 100%);
+    backdrop-filter: blur(12px);
+    background-color: rgba(17, 17, 17, 0.7);
     display: flex;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
     flex-direction: column;
@@ -109,13 +110,11 @@
         border-radius: 50%;
       }
       &-active {
-        // border: 1px solid red;
-        // color: #caad05;
         font-weight: 800;
       }
       &-holiday {
         font-weight: 800;
-        color: #a7900e;
+        color: #1ec6cc;
       }
     }
     &-values {

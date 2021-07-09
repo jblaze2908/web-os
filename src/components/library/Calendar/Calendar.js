@@ -12,7 +12,7 @@ const findEvent = (date, holidays) => {
   });
 };
 export default function Calendar(props) {
-  const { startDragging } = props;
+  const { startDragging, _id } = props;
   const [holidays, setHolidays] = useState([]);
   const [selectedDate, selectDate] = useState(new Date());
   useEffect(() => {
@@ -31,6 +31,7 @@ export default function Calendar(props) {
         theme="dark"
         resizing={false}
         startDragging={startDragging}
+        _id={_id}
       />
       <div className="calendar__content">
         <CalendarBody holidays={holidays} selectDate={selectDate} />

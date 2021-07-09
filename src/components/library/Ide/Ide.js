@@ -42,7 +42,6 @@ export default function Ide(props) {
       },
     };
     Axios.request(options).then((res) => {
-      console.log(res.data);
       interval = setInterval(() => {
         getSubmission(res.data.token);
       }, 1000);
@@ -61,7 +60,6 @@ export default function Ide(props) {
 
     Axios.request(options)
       .then((res) => {
-        console.log(res.data);
         let statusId = res.data.status.id;
         if (statusId !== 1 && statusId !== 2) {
           clearInterval(interval);

@@ -122,7 +122,7 @@ export default function CodeEditor(props) {
           </div>
         </div>
         <div className="codeeditor__darkMode-toggle" onClick={toggleDarkMode}>
-          <img src={darkMode ? Moon : Sun} alt="" srcset="" />
+          <img src={darkMode ? Moon : Sun} alt="" />
         </div>
         <div
           className="codeeditor__runcode"

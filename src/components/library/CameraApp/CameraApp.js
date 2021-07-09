@@ -40,7 +40,6 @@ export default function CameraApp(props) {
       vidDimensions.height
     );
     let data = canvasEl.toDataURL("image/png");
-    console.log(data);
     pic.current.src = data;
   };
   const streamError = (error) => {};

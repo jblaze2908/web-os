@@ -28,9 +28,8 @@ export default function Variant2(props) {
   };
   const closeColorPicker = () => {
     setShowColorPicker(false);
-  }
+  };
   const setColor = (type, val) => {
-    console.log(val);
     let color = { ...colors };
     switch (type) {
       case "1a":
@@ -56,7 +55,7 @@ export default function Variant2(props) {
         className="clockWidget2__time"
         style={{
           background: `linear-gradient(${colors.color1a},${colors.color1b})`,
-          WebkitBackgroundClip: "text"
+          WebkitBackgroundClip: "text",
         }}
         key={colors.color1a + " - " + colors.color1b}
       >
@@ -68,10 +67,9 @@ export default function Variant2(props) {
         className="clockWidget2__day"
         style={{
           background: `linear-gradient(${colors.color2a},${colors.color2b})`,
-          WebkitBackgroundClip: "text"
+          WebkitBackgroundClip: "text",
         }}
         key={colors.color2a + " " + colors.color2b}
-
       >
         {days[new Date(time).getDay()]}
       </div>
@@ -80,7 +78,7 @@ export default function Variant2(props) {
         key={colors.color1a + " " + colors.color1b}
         style={{
           background: `linear-gradient(${colors.color1a},${colors.color1b})`,
-          WebkitBackgroundClip: "text"
+          WebkitBackgroundClip: "text",
         }}
       >
         {new Date(time).getDate() +
@@ -107,7 +105,11 @@ export default function Variant2(props) {
         />
       ) : null}
       {showColorPicker ? (
-        <ColorPicker colors={colors} setColor={setColor} closeColorPicker={closeColorPicker} />
+        <ColorPicker
+          colors={colors}
+          setColor={setColor}
+          closeColorPicker={closeColorPicker}
+        />
       ) : null}
     </div>
   );

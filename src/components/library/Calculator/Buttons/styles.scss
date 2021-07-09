@@ -1,7 +1,7 @@
 .calcbtns {
   &__container {
-    background-color: #464e55;
-    background: linear-gradient(#292a2c 0%, rgb(42, 46, 49) 100%);
+    backdrop-filter: blur(10px);
+    background-color: rgba(22, 22, 22, 0.775);
     border-radius: 0 0 4px 4px;
     display: flex;
     flex-wrap: wrap;
@@ -10,6 +10,9 @@
 .calcbtn {
   &:active {
     opacity: 0.4;
+  }
+  &:hover {
+    background-color: rgba(53, 53, 53, 0.678);
   }
   width: 25%;
   height: 4rem;
@@ -21,7 +24,7 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   &-gold {
-    color: #caad05;
+    color: #56f9ff;
   }
   &-faded {
     opacity: 0.7;

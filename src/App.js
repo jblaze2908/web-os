@@ -6,7 +6,6 @@ import DraggableComponent from "./components/library/Common/DraggableContainer";
 import Ide from "./components/library/Ide";
 import ImgViewer from "./components/library/ImgViewer";
 import Notepad from "./components/library/Notepad";
-import ClockWidget from "./components/library/Widgets/ClockWidget";
 import Desktop from "./components/library/Desktop";
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
       <DraggableComponent component={Notepad} />
       <DraggableComponent component={Ide} />
       <DraggableComponent component={Calendar} /> */}
-      <ClockWidget variant={2} />
       {/* <WeatherWidget /> */}
       <Desktop />
     </div>

@@ -4,7 +4,7 @@ import Display from "./Display";
 import Buttons from "./Buttons";
 import "./style.scss";
 export default function Calculator(props) {
-  const { startDragging } = props;
+  const { startDragging, _id } = props;
   const [decimalOp1, setDecimal1] = useState(false);
   const [decimalOp2, setDecimal2] = useState(false);
   const [op1, changeOperand1] = useState(null);
@@ -141,7 +141,6 @@ export default function Calculator(props) {
   let row1, row2;
   if (operator === "sqr") {
     row1 = op1 + " * " + op1 + " =";
-    console.log(op1);
     row2 = ans;
   } else if (!operator) {
     row2 = op1 === null ? 0 : op1;
@@ -163,6 +162,7 @@ export default function Calculator(props) {
   return (
     <div className="container">
       <TitleBar
+        _id={_id}
         label="Calculator"
         theme="dark"
         resizing={false}

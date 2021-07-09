@@ -1,0 +1,20 @@
+.current-task {
+  //   border: 1px solid red;
+  cursor: pointer;
+
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.5rem;
+  &-active {
+    background-color: rgba(107, 104, 104, 0.589);
+  }
+  & img {
+    width: 80%;
+    filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.3));
+  }
+}

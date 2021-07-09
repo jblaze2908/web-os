@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Power from "../../../assets/svg/power.svg";
 import Github from "../../../assets/appIcon/github.svg";
 import LinkedIn from "../../../assets/appIcon/linkedin.svg";
@@ -9,34 +10,69 @@ import Notepad from "../../../assets/appIcon/notepad.svg";
 import Ide from "../../../assets/appIcon/ide.svg";
 import Chat from "../../../assets/appIcon/chat.png";
 import Guest from "../../../assets/svg/guest.svg";
+import { launchApp } from "../../../actions/tasks";
+import { v4 as uuidv4 } from "uuid";
+
 import "./style.scss";
 function AppIcon(props) {
   if (props.link)
     return (
       <a target="__blank" href={props.link} className="appdrawer__apps-app">
         <div className="appdrawer__apps-app-icon">
-          <img src={props.src} alt="" srcset="" />
+          <img src={props.src} alt="" />
         </div>
         <div className="appdrawer__apps-app-name">{props.name}</div>
       </a>
     );
   else
     return (
-      <div className="appdrawer__apps-app">
+      <div
+        className="appdrawer__apps-app"
+        onClick={() => {
+          props.launchApp(props.name);
+        }}
+      >
         <div className="appdrawer__apps-app-icon">
-          <img src={props.src} alt="" srcset="" />
+          <img src={props.src} alt="" />
         </div>
         <div className="appdrawer__apps-app-name">{props.name}</div>
       </div>
     );
 }
 export default function AppDrawer(props) {
+  useEffect(() => {
+    document.addEventListener("click", checkClickOutside);
+    document.addEventListener("contextmenu", checkClickOutside);
+    return () => {
+      document.removeEventListener("click", checkClickOutside);
+      document.removeEventListener("contextmenu", checkClickOutside);
+    };
+  }, []);
+  const appDrawer = useRef();
+  const checkClickOutside = (e) => {
+    if (appDrawer.current && !appDrawer.current.contains(e.target)) {
+      props.hideAppDrawer();
+    }
+  };
+  const currentTasks = useSelector((state) => state.taskManager.currentTasks);
+  const dispatch = useDispatch();
+  const startApp = (name) => {
+    let _id = uuidv4();
+    props.hideAppDrawer();
+    dispatch(
+      launchApp({
+        _id,
+        name,
+      })
+    );
+  };
   return (
     <div
       className={
         "appdrawer__container" +
         (props.close ? " appdrawer__container-close" : "")
       }
+      ref={appDrawer}
       onAnimationEnd={props.close ? props.removeAppDrawer : null}
     >
       <div>
@@ -58,13 +94,12 @@ export default function AppDrawer(props) {
         <div className="appdrawer__apps">
           <div className="appdrawer__apps-label">Recommended</div>
           <div className="appdrawer__apps-icons">
-            <AppIcon src={Calculator} name="Calculator" />
-            <AppIcon src={Calendar} name="Calendar" />
-            <AppIcon src={Camera} name="Camera" />
-            <AppIcon src={LinkedIn} name="Linkedin" />
-            <AppIcon src={Notepad} name="Notepad" />
-            <AppIcon src={Ide} name="Ide" />
-            <AppIcon src={Chat} name="Chat" />
+            <AppIcon src={Calculator} name="Calculator" launchApp={startApp} />
+            <AppIcon src={Calendar} name="Calendar" launchApp={startApp} />
+            <AppIcon src={Camera} name="Camera" launchApp={startApp} />
+            <AppIcon src={Notepad} name="Notepad" launchApp={startApp} />
+            <AppIcon src={Ide} name="IDE" launchApp={startApp} />
+            <AppIcon src={Chat} name="Chat" launchApp={startApp} />
           </div>
         </div>
       </div>
