@@ -1,0 +1,114 @@
+.appdrawer {
+  &__container {
+    user-select: none;
+    animation: fadeInTop 0.3s ease-in-out forwards;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    background-color: rgba(19, 18, 18, 0.5);
+    backdrop-filter: blur(10px);
+    height: 30rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 50%;
+    bottom: 4rem;
+    z-index: 1;
+    &-close {
+      animation: fadeOutBottom 0.3s ease-in-out forwards;
+    }
+    @keyframes fadeInTop {
+      from {
+        transform: translate(-50%, 4rem);
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+    @keyframes fadeOutBottom {
+      from {
+        transform: translate(-50%, 0);
+        opacity: 1;
+      }
+      to {
+        transform: translate(-50%, 4rem);
+        opacity: 0;
+      }
+    }
+  }
+  &__apps {
+    padding: 1rem;
+    color: #fff;
+    &-label {
+      // text-align: center;
+    }
+    &-icons {
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 1rem;
+    }
+    &-app {
+      display: flex;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      transition: all 0.3s;
+      width: 4.5rem;
+      min-width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 4px;
+      margin: 0.5rem;
+      text-decoration: none;
+      &:hover {
+        background-color: #fff3;
+      }
+      &-icon {
+        & img {
+          height: 48px;
+          width: 48px;
+        }
+        filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.3));
+      }
+      &-name {
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        color: #fff;
+      }
+    }
+  }
+  &__bar {
+    // border: 1px solid red;
+    background-color: rgba(19, 18, 18, 0.5);
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    justify-content: space-between;
+    &-user {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      &-img {
+        margin-right: 0.5rem;
+        filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.3));
+        // border: 1px solid red;
+        // background-color: #fff;
+
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+      }
+    }
+    &-power {
+      filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.3));
+      width: 1.2rem;
+      height: 1.2rem;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+  }
+}

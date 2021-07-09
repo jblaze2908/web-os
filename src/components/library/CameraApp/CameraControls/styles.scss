@@ -1,0 +1,28 @@
+.cmracontrols {
+  &__container {
+    height: 4rem;
+    border-radius: 0 0 4px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#2d3135 0%, #3c3e3f 100%);
+  }
+  &__shutter {
+    background-color: #f7f7f7;
+    width: 3.2rem;
+    height: 3.2rem;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    border-radius: 50%;
+    &:active {
+      opacity: 0.8;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    & img {
+      width: 70%;
+    }
+  }
+}

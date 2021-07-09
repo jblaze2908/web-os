@@ -1,0 +1,71 @@
+.taskbar {
+  &__container {
+    user-select: none;
+    position: fixed;
+    width: 100%;
+    height: 3rem;
+    bottom: 0;
+    backdrop-filter: blur(4px);
+    display: flex;
+    z-index: 2;
+  }
+  &__left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__right {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 14rem;
+    &-icons {
+      height: 100%;
+      align-items: center;
+      display: flex;
+    }
+    &-icon {
+      margin: 0 0.5rem;
+      width: 1.35rem;
+      cursor: pointer;
+    }
+    &-dt {
+      margin: 0 0.5rem;
+      margin-right: 1rem;
+      text-align: center;
+      color: #fff;
+      font-size: 0.8rem;
+    }
+  }
+  &__btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s;
+    border-radius: 4px;
+    &-animate {
+      & img {
+        animation: rotate 0.3s ease-in-out forwards;
+      }
+    }
+    &:hover {
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+
+      background-color: rgba(202, 195, 195, 0.14);
+    }
+    & img {
+      filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.3));
+      width: 70%;
+
+      @keyframes rotate {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}

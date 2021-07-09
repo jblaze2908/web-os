@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import Calculator from "./components/library/Calculator";
+import Calendar from "./components/library/Calendar";
+import CameraApp from "./components/library/CameraApp";
+import DraggableComponent from "./components/library/Common/DraggableContainer";
+import Ide from "./components/library/Ide";
+import ImgViewer from "./components/library/ImgViewer";
+import Notepad from "./components/library/Notepad";
+import ClockWidget from "./components/library/Widgets/ClockWidget";
+import Desktop from "./components/library/Desktop";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <DraggableComponent component={Calculator} />
+      <DraggableComponent component={CameraApp} />
+      <DraggableComponent component={ImgViewer} />
+      <DraggableComponent component={Notepad} />
+      <DraggableComponent component={Ide} />
+      <DraggableComponent component={Calendar} /> */}
+      <ClockWidget variant={2} />
+      {/* <WeatherWidget /> */}
+      <Desktop />
     </div>
   );
 }

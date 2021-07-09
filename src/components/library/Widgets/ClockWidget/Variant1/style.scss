@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+.clockWidget1 {
+  &__container {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    font-family: "Rubik";
+    // user-select: none;
+    margin: 1rem;
+  }
+  &__hour {
+    font-size: 14rem;
+    letter-spacing: -1.3rem;
+  }
+  &__minutes {
+    font-size: 14rem;
+    margin-top: -7rem;
+    letter-spacing: -0.6rem;
+  }
+  &__date {
+    font-weight: 800;
+    margin-top: -2.4rem;
+    margin-left: 2rem;
+    font-size: 1.3rem;
+  }
+}

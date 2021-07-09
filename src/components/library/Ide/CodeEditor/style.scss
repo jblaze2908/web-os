@@ -1,0 +1,78 @@
+.codeeditor {
+  &__container {
+    height: calc(100% - 27.2px);
+    width: 100%;
+  }
+  &__toolbar {
+    height: 2.5rem;
+    display: flex;
+    color: #fff;
+    padding: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #515b63;
+    background: linear-gradient(#515b63 0%, #475057 100%);
+  }
+  &__lang-selector {
+    display: flex;
+    &-select {
+      margin-left: 0.5rem;
+      position: relative;
+      text-transform: capitalize;
+      &-value {
+        color: #caad05;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      &-options {
+        &-container {
+          border-radius: 4px;
+          padding: 0.5rem 0.75rem;
+          padding-top: 0;
+          position: absolute;
+          top: -6rem;
+          left: -1.5rem;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+          background: linear-gradient(#515b63 0%, #475057 100%);
+          display: none;
+          &-open {
+            display: block;
+          }
+        }
+      }
+      &-option {
+        margin-top: 0.5rem;
+        cursor: pointer;
+        &-active {
+          font-weight: 800;
+          color: #caad05;
+        }
+      }
+    }
+  }
+  &__font {
+    display: flex;
+    &-btn {
+      margin: 0 0.5rem;
+      cursor: pointer;
+    }
+  }
+  &__darkMode-toggle {
+    width: 1.5rem;
+    cursor: pointer;
+  }
+  &__runcode {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    background-color: rgb(39, 117, 235);
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    border-radius: 4px;
+    &:active {
+      box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.6);
+    }
+  }
+}

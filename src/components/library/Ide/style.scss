@@ -1,0 +1,136 @@
+.ide {
+  &__container {
+    margin: 1rem;
+    height: 40rem;
+    width: 50rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    user-select: none;
+    background-color: #515b63;
+
+    &-maximized {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__content {
+    display: flex;
+    height: 100%;
+    &-left {
+      width: 60%;
+      height: 100%;
+    }
+    &-partition {
+      border-radius: 4px;
+      height: calc(100% - 27.2px);
+      background-color: #515b63;
+      background: linear-gradient(90deg #515b63 0%, #475057 100%);
+
+      width: 6px;
+    }
+    &-right {
+      width: calc(40% - 12px);
+      &-input {
+        height: calc(50% - 17px - 1.25rem);
+        &-dark {
+          & textarea {
+            background-color: #323336;
+            color: #fff;
+          }
+        }
+        & textarea {
+          height: 100%;
+          width: 100%;
+          padding: 0.5rem;
+          font-size: 1rem;
+          resize: none;
+          border: none;
+        }
+      }
+      &-output {
+        position: relative;
+        height: calc(50% - 17px - 1.25rem);
+        & textarea {
+          height: 100%;
+          font-size: 1rem;
+          resize: none;
+          white-space: pre;
+          width: 100%;
+          border: none;
+          padding: 0.5rem;
+        }
+        &-dark {
+          & textarea {
+            color: #fff;
+            background-color: #323336;
+          }
+        }
+      }
+      &-toolbar {
+        background-color: #515b63;
+        background: linear-gradient(#515b63 0%, #475057 100%);
+        height: 2.5rem;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & a {
+          text-decoration: none;
+          color: #caad05;
+          font-weight: 800;
+          margin-left: 0.3rem;
+        }
+      }
+      &-partition {
+        height: 6px;
+        background-color: #515b63;
+        background: linear-gradient(#515b63 0%, #475057 100%);
+      }
+    }
+  }
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+  &-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  & .path {
+    stroke: hsl(210, 70, 75);
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}

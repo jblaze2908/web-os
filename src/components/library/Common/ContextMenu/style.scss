@@ -1,0 +1,23 @@
+.contextMenu {
+  &__container {
+    position: fixed;
+    // width: 10rem;
+    border-radius: 4px;
+    background: linear-gradient(#465055, #2e2d2d);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  &__option {
+    padding: 0 1rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    // border: 1px solid red;
+    cursor: pointer;
+    &:hover {
+      background-color: #242929;
+    }
+  }
+}

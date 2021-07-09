@@ -1,0 +1,16 @@
+.notepad {
+  &__container {
+    margin: 1rem;
+    height: 30rem;
+    width: 32.5rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    user-select: none;
+    overflow: hidden;
+    &-maximized {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

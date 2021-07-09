@@ -1,0 +1,23 @@
+.imgviewer {
+  &__container {
+    min-width: 35rem;
+    height: calc(35rem + 27.2px);
+    &-maximized {
+      height: 100%;
+    }
+  }
+  &__img {
+    border-radius: 0 0 4px 4px;
+    height: calc(100% - 27.2px);
+    background: linear-gradient(#292a2c 0%, rgb(42, 46, 49) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.3);
+
+    & img {
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+}

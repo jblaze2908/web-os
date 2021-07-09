@@ -1,0 +1,11 @@
+#root {
+  font-family: "Ubuntu";
+}
+@font-face {
+  font-family: "steelfish";
+  src: local("steelfish"), url(./fonts/steelfish_rg.ttf) format("opentype");
+}
+@font-face {
+  font-family: "lcdo";
+  src: local("lcdo"), url(./fonts/lcdo.ttf) format("opentype");
+}

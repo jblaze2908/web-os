@@ -1,0 +1,40 @@
+.clockWidget2 {
+  &__container {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    margin: 1rem;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    justify-content: center;
+  }
+  &__time {
+    font-family: "steelfish";
+    color: transparent;
+    // background: linear-gradient(#757578, #56565e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 9rem;
+  }
+  &__day {
+    margin-top: -3rem;
+    font-family: "lcdo";
+    font-size: 8rem;
+    // color: #fff;
+    color: transparent;
+    background: linear-gradient(#ee5b5b, #f36e6e);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  &__date {
+    color: transparent;
+    background: linear-gradient(#757578, #56565e);
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    margin-top: -3rem;
+    font-family: "steelfish";
+    font-size: 3rem;
+  }
+}
