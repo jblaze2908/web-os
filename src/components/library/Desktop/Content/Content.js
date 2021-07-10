@@ -15,6 +15,9 @@ export default function Content() {
     <>
       {currentTasks.find((task) => task.name === "Calculator") ? (
         <DraggableComponent
+          show={
+            currentTasks.find((task) => task.name === "Calculator").maximized
+          }
           component={Calculator}
           _id={currentTasks.find((task) => task.name === "Calculator")._id}
         />
@@ -23,6 +26,7 @@ export default function Content() {
       )}
       {currentTasks.find((task) => task.name === "Calendar") ? (
         <DraggableComponent
+          show={currentTasks.find((task) => task.name === "Calendar").maximized}
           component={Calendar}
           _id={currentTasks.find((task) => task.name === "Calendar")._id}
         />
@@ -31,6 +35,7 @@ export default function Content() {
       )}
       {currentTasks.find((task) => task.name === "Camera") ? (
         <DraggableComponent
+          show={currentTasks.find((task) => task.name === "Camera").maximized}
           component={Camera}
           _id={currentTasks.find((task) => task.name === "Camera")._id}
         />
@@ -39,6 +44,7 @@ export default function Content() {
       )}
       {currentTasks.find((task) => task.name === "Notepad") ? (
         <DraggableComponent
+          show={currentTasks.find((task) => task.name === "Notepad").maximized}
           component={Notepad}
           _id={currentTasks.find((task) => task.name === "Notepad")._id}
         />
@@ -47,6 +53,7 @@ export default function Content() {
       )}
       {currentTasks.find((task) => task.name === "IDE") ? (
         <DraggableComponent
+          show={currentTasks.find((task) => task.name === "IDE").maximized}
           component={Ide}
           _id={currentTasks.find((task) => task.name === "IDE")._id}
         />
@@ -55,6 +62,7 @@ export default function Content() {
       )}
       {currentTasks.find((task) => task.name === "Browser") ? (
         <DraggableComponent
+          show={currentTasks.find((task) => task.name === "Browser").maximized}
           component={Browser}
           _id={currentTasks.find((task) => task.name === "Browser")._id}
         />
@@ -63,6 +71,7 @@ export default function Content() {
       )}
       {currentTasks.find((task) => task.name === "Chat") ? (
         <DraggableComponent
+          show={currentTasks.find((task) => task.name === "Chat").maximized}
           component={Chat}
           _id={currentTasks.find((task) => task.name === "Chat")._id}
         />

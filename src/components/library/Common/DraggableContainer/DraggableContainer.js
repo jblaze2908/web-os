@@ -101,10 +101,12 @@ class DraggableContainer extends Component {
   render() {
     const { focusedEl } = this.props.taskManager;
     const { position } = this.task;
+
     return (
       <div
         className="movable__container"
         style={{
+          display: this.props.show ? "block" : "none",
           position: "absolute",
           top: this.state.maximized ? 0 : position.top,
           left: this.state.maximized ? 0 : position.left,

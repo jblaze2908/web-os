@@ -10,7 +10,7 @@ import Browser from "../../../../../assets/appIcon/browser.svg";
 import ContextMenu from "../../../Common/ContextMenu";
 
 import { useSelector, useDispatch } from "react-redux";
-import { focusApp, exitApp } from "../../../../../actions/tasks";
+import { maximizeApp, exitApp } from "../../../../../actions/tasks";
 const getIcon = (name) => {
   switch (name) {
     case "Calculator":
@@ -62,7 +62,7 @@ export default function CurrentTasks() {
             (taskManager.focusedEl === task._id ? " current-task-active" : "")
           }
           onClick={() => {
-            dispatch(focusApp(task._id));
+            dispatch(maximizeApp(task._id));
           }}
         >
           <img

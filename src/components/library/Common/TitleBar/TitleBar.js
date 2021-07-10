@@ -1,8 +1,9 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Close from "../../../../assets/svg/close.svg";
+import Hide from "../../../../assets/svg/hide.svg";
 import Sq from "../../../../assets/svg/sq.svg";
-import { exitApp } from "../../../../actions/tasks";
+import { exitApp, minimizeApp } from "../../../../actions/tasks";
 import "./styles.scss";
 
 import Calculator from "../../../../assets/appIcon/calc.svg";
@@ -59,20 +60,29 @@ export default function TitleBar(props) {
         {label}
       </div>
       <div className="titlebar__buttons">
+        <button
+          className="titlebar__button titlebar__button-hide"
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(minimizeApp(_id));
+          }}
+        >
+          <img src={Hide} alt="-" />
+        </button>
         {resizing ? (
           maximized ? (
             <button
               className="titlebar__button titlebar__button-minimize"
               onClick={minimize}
             >
-              <img src={Sq} alt="cross" />
+              <img src={Sq} alt="square" />
             </button>
           ) : (
             <button
               onClick={maximize}
               className="titlebar__button titlebar__button-maximize"
             >
-              <img src={Sq} alt="cross" />
+              <img src={Sq} alt="square" />
             </button>
           )
         ) : null}

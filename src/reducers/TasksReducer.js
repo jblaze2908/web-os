@@ -49,22 +49,24 @@ const TasksReducer = (state = initialState, action) => {
 
     case "MINIMIZE_APP":
       currentTasks = [...state.currentTasks];
-      index = currentTasks.findIndex((task) => task._id === action.payload._id);
+      index = currentTasks.findIndex((task) => task._id === action.payload);
       newProperties = { ...currentTasks[index] };
       newProperties.maximized = false;
       currentTasks[index] = newProperties;
       return {
         ...state,
+        focusedEl:
+          state.focusedEl === currentTasks[index]._id ? "" : state.focusedEl,
         currentTasks,
       };
     case "MAXIMIZE_APP":
       currentTasks = [...state.currentTasks];
-      index = currentTasks.findIndex((task) => task._id === action.payload._id);
+      index = currentTasks.findIndex((task) => task._id === action.payload);
       newProperties = { ...currentTasks[index] };
       newProperties.maximized = true;
       currentTasks[index] = newProperties;
       return {
-        focusedEl: action.payload_id,
+        focusedEl: action.payload,
         currentTasks,
       };
     case "EXIT_APP":

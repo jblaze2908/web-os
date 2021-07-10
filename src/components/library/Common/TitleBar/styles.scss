@@ -57,18 +57,23 @@
     align-items: center;
     justify-content: center;
     &-minimize {
-      margin-right: 0.9rem;
       padding-top: 0.1rem;
       & img {
-        width: 80%;
+        width: 50%;
         box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.4);
       }
     }
     &-maximize {
-      margin-right: 0.9rem;
       padding-top: 0.1rem;
       & img {
-        width: 50%;
+        width: 40%;
+        box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.4);
+      }
+    }
+    &-hide {
+      padding-top: 0.1rem;
+      & img {
+        width: 30%;
         box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.4);
       }
     }
