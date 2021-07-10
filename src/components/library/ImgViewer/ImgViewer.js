@@ -2,7 +2,7 @@ import React from "react";
 import TitleBar from "../Common/TitleBar";
 import "./styles.scss";
 export default function ImgViewer(props) {
-  const { startDragging, maximize, minimize, imgSrc, maximized } = props;
+  const { startDragging, maximize, minimize, _id, imgSrc, maximized } = props;
   return (
     <div
       className={
@@ -15,6 +15,7 @@ export default function ImgViewer(props) {
         theme="dark"
         maximized={maximized}
         maximize={maximize}
+        _id={_id}
         resizing={true}
         minimize={minimize}
         startDragging={startDragging}

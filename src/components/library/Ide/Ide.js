@@ -6,7 +6,7 @@ import Spinner from "./Spinner";
 import "./style.scss";
 export default function Ide(props) {
   let interval;
-  const { startDragging, maximize, minimize, maximized } = props;
+  const { startDragging, maximize, minimize, maximized, _id } = props;
   const [darkMode, setDarkMode] = useState(true);
   const [inpVal, setInpVal] = useState("");
   const [outVal, setOutVal] = useState("");
@@ -88,11 +88,12 @@ export default function Ide(props) {
       }
     >
       <TitleBar
-        label="Ide"
+        label="IDE"
         theme="dark"
         maximized={maximized}
         maximize={maximize}
         resizing={true}
+        _id={_id}
         minimize={minimize}
         startDragging={startDragging}
       />

@@ -108,8 +108,7 @@ class DraggableContainer extends Component {
           position: "absolute",
           top: this.state.maximized ? 0 : position.top,
           left: this.state.maximized ? 0 : position.left,
-          zIndex:
-            this.state.maximized || focusedEl === this.props._id ? 999 : 1,
+          zIndex: this.state.maximized || focusedEl === this.props._id ? 2 : 1,
           width: this.state.maximized ? "100%" : null,
           height: this.state.maximized ? "100%" : null,
         }}

@@ -3,8 +3,9 @@
     position: fixed;
     // width: 10rem;
     border-radius: 4px;
-    background: linear-gradient(#465055, #2e2d2d);
+    background-color: #242929;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
     overflow: hidden;
   }
   &__option {

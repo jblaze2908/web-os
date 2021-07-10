@@ -17,22 +17,20 @@
   &__content {
     display: flex;
     height: 100%;
+    height: calc(100% - 31px);
     &-left {
       width: 60%;
       height: 100%;
     }
     &-partition {
-      border-radius: 4px;
-      height: calc(100% - 27.2px);
       background-color: #515b63;
-      background: linear-gradient(90deg #515b63 0%, #475057 100%);
 
       width: 6px;
     }
     &-right {
       width: calc(40% - 12px);
       &-input {
-        height: calc(50% - 17px - 1.25rem);
+        height: calc(50% - 3px - 1.25rem);
         &-dark {
           & textarea {
             background-color: #323336;
@@ -50,7 +48,7 @@
       }
       &-output {
         position: relative;
-        height: calc(50% - 17px - 1.25rem);
+        height: calc(50% - 3px - 1.25rem);
         & textarea {
           height: 100%;
           font-size: 1rem;
@@ -69,7 +67,6 @@
       }
       &-toolbar {
         background-color: #515b63;
-        background: linear-gradient(#515b63 0%, #475057 100%);
         height: 2.5rem;
         color: #fff;
         display: flex;
@@ -85,7 +82,6 @@
       &-partition {
         height: 6px;
         background-color: #515b63;
-        background: linear-gradient(#515b63 0%, #475057 100%);
       }
     }
   }

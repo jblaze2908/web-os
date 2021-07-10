@@ -5,7 +5,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(#2d3135 0%, #3c3e3f 100%);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.2);
   }
   &__shutter {
     background-color: #f7f7f7;
@@ -14,7 +15,7 @@
     display: flex;
     cursor: pointer;
     align-items: center;
-    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.4), 0px 0px 0px 3px rgb(0, 0, 0);
     justify-content: center;
     border-radius: 50%;
     &:active {

@@ -1,6 +1,6 @@
 .codeeditor {
   &__container {
-    height: calc(100% - 27.2px);
+    height: 100%;
     width: 100%;
   }
   &__toolbar {
@@ -11,7 +11,6 @@
     justify-content: space-between;
     align-items: center;
     background-color: #515b63;
-    background: linear-gradient(#515b63 0%, #475057 100%);
   }
   &__lang-selector {
     display: flex;

@@ -5,9 +5,10 @@ import CameraControls from "./CameraControls";
 import "./styles.scss";
 
 export default function CameraApp(props) {
+  let streamVar = null;
   const canvas = useRef(null);
   const pic = useRef(null);
-  const { startDragging, maximize, minimize, maximized } = props;
+  const { startDragging, maximize, minimize, maximized, _id } = props;
   const [loaded, setLoaded] = useState(false);
   const [stream, enableStream] = useState(null);
   const [vidDimensions, setVidDimensions] = useState({
@@ -16,14 +17,17 @@ export default function CameraApp(props) {
     width: 0,
   });
 
-  const endStream = () => {
-    if (stream)
-      stream.getTracks().forEach((track) => {
+  const endStream = (streamVar) => {
+    let temp = stream || streamVar;
+    if (temp)
+      temp.getTracks().forEach((track) => {
         track.stop();
       });
+    streamVar = null;
   };
   const playStream = (stream) => {
     enableStream(stream);
+    streamVar = stream;
     setLoaded(true);
   };
   const clickImg = () => {
@@ -55,7 +59,7 @@ export default function CameraApp(props) {
       navigator.getUserMedia(constraints, playStream, streamError);
     }
     return () => {
-      endStream();
+      endStream(streamVar);
     };
   }, []);
   const getVideoDimension = (data) => {
@@ -74,6 +78,7 @@ export default function CameraApp(props) {
         resizing={true}
         maximize={maximize}
         minimize={minimize}
+        _id={_id}
         startDragging={startDragging}
       />
       <CameraDisplay

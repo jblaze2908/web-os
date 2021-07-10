@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import Calculator from "../../../../../assets/appIcon/calc.svg";
 import Calendar from "../../../../../assets/appIcon/calendar.svg";
@@ -6,7 +6,11 @@ import Camera from "../../../../../assets/appIcon/camera.svg";
 import Notepad from "../../../../../assets/appIcon/notepad.svg";
 import Ide from "../../../../../assets/appIcon/ide.svg";
 import Chat from "../../../../../assets/appIcon/chat.png";
-import { useSelector } from "react-redux";
+import Browser from "../../../../../assets/appIcon/browser.svg";
+import ContextMenu from "../../../Common/ContextMenu";
+
+import { useSelector, useDispatch } from "react-redux";
+import { focusApp, exitApp } from "../../../../../actions/tasks";
 const getIcon = (name) => {
   switch (name) {
     case "Calculator":
@@ -21,19 +25,45 @@ const getIcon = (name) => {
       return Ide;
     case "Chat":
       return Chat;
+    case "Browser":
+      return Browser;
   }
 };
 export default function CurrentTasks() {
   const taskManager = useSelector((state) => state.taskManager);
+
+  const [showContextMenu, setShowContextMenu] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
+  const [contextMenuPos, setContextMenuPos] = useState({
+    top: 0,
+    left: 0,
+  });
   const { currentTasks } = taskManager;
+  const dispatch = useDispatch();
+  const openContextMenu = (e, task) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSelectedTask(task);
+    setShowContextMenu(true);
+    const el = document.getElementById(task.name);
+    console.log(el.offsetLeft);
+    setContextMenuPos({ top: "-35px", left: el.offsetLeft });
+  };
   return (
     <>
       {currentTasks.map((task) => (
         <div
+          onContextMenu={(e) => {
+            openContextMenu(e, task);
+          }}
+          id={task.name}
           className={
             "current-task" +
             (taskManager.focusedEl === task._id ? " current-task-active" : "")
           }
+          onClick={() => {
+            dispatch(focusApp(task._id));
+          }}
         >
           <img
             src={"" + getIcon(task.name)}
@@ -42,6 +72,24 @@ export default function CurrentTasks() {
           />
         </div>
       ))}
+      {showContextMenu ? (
+        <ContextMenu
+          position={contextMenuPos}
+          options={[
+            {
+              name: "Close App - " + selectedTask.name,
+              onClick: () => {
+                setShowContextMenu(false);
+                dispatch(exitApp(selectedTask._id));
+              },
+            },
+          ]}
+          closeMenu={() => {
+            setShowContextMenu(false);
+            setSelectedTask(false);
+          }}
+        />
+      ) : null}
     </>
   );
 }

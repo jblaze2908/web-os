@@ -1,14 +1,14 @@
 .imgviewer {
   &__container {
     min-width: 35rem;
-    height: calc(35rem + 27.2px);
+    height: calc(35rem + 31px);
     &-maximized {
       height: 100%;
     }
   }
   &__img {
     border-radius: 0 0 4px 4px;
-    height: calc(100% - 27.2px);
+    height: calc(100% - 31px);
     background: linear-gradient(#292a2c 0%, rgb(42, 46, 49) 100%);
     display: flex;
     align-items: center;

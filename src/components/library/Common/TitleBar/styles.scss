@@ -22,9 +22,21 @@
       cursor: grabbing;
     }
   }
-
+  &__icon {
+    width: 1.75rem;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    & img {
+      width: 100%;
+      filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.3));
+    }
+  }
   &__label {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
     padding-left: 1rem;
+    display: flex;
+    align-items: center;
   }
   &__buttons {
     width: 5rem;

@@ -9,6 +9,7 @@ import Camera from "../../../assets/appIcon/camera.svg";
 import Notepad from "../../../assets/appIcon/notepad.svg";
 import Ide from "../../../assets/appIcon/ide.svg";
 import Chat from "../../../assets/appIcon/chat.png";
+import Browser from "../../../assets/appIcon/browser.svg";
 import Guest from "../../../assets/svg/guest.svg";
 import { launchApp } from "../../../actions/tasks";
 import { v4 as uuidv4 } from "uuid";
@@ -94,6 +95,7 @@ export default function AppDrawer(props) {
         <div className="appdrawer__apps">
           <div className="appdrawer__apps-label">Recommended</div>
           <div className="appdrawer__apps-icons">
+            <AppIcon src={Browser} name="Browser" launchApp={startApp} />
             <AppIcon src={Calculator} name="Calculator" launchApp={startApp} />
             <AppIcon src={Calendar} name="Calendar" launchApp={startApp} />
             <AppIcon src={Camera} name="Camera" launchApp={startApp} />
