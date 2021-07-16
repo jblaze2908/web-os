@@ -8,6 +8,8 @@ import Notepad from "../../Notepad";
 import Ide from "../../Ide";
 import Browser from "../../Browser";
 import Chat from "../../Chat";
+import Maps from "../../Maps";
+import AudioPlayer from "../../AudioPlayer";
 export default function Content() {
   const currentTasks = useSelector((state) => state.taskManager.currentTasks);
 
@@ -74,6 +76,26 @@ export default function Content() {
           show={currentTasks.find((task) => task.name === "Chat").maximized}
           component={Chat}
           _id={currentTasks.find((task) => task.name === "Chat")._id}
+        />
+      ) : (
+        ""
+      )}
+      {currentTasks.find((task) => task.name === "Music Player") ? (
+        <DraggableComponent
+          show={
+            currentTasks.find((task) => task.name === "Music Player").maximized
+          }
+          component={AudioPlayer}
+          _id={currentTasks.find((task) => task.name === "Music Player")._id}
+        />
+      ) : (
+        ""
+      )}
+      {currentTasks.find((task) => task.name === "Maps") ? (
+        <DraggableComponent
+          show={currentTasks.find((task) => task.name === "Maps").maximized}
+          component={Maps}
+          _id={currentTasks.find((task) => task.name === "Maps")._id}
         />
       ) : (
         ""

@@ -1,11 +1,5 @@
 import "./App.scss";
-import Calculator from "./components/library/Calculator";
-import Calendar from "./components/library/Calendar";
-import CameraApp from "./components/library/CameraApp";
-import DraggableComponent from "./components/library/Common/DraggableContainer";
-import Ide from "./components/library/Ide";
-import ImgViewer from "./components/library/ImgViewer";
-import Notepad from "./components/library/Notepad";
+import ReactAce from "react-ace/lib/ace";
 import Desktop from "./components/library/Desktop";
 
 function App() {
@@ -19,6 +13,7 @@ function App() {
       <DraggableComponent component={Calendar} /> */}
       {/* <WeatherWidget /> */}
       <Desktop />
+      {/* <AudioPlayer /> */}
     </div>
   );
 }

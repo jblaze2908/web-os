@@ -1,0 +1,40 @@
+.maps {
+  &__container {
+    margin: 1rem;
+    height: 40rem;
+    width: 55rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    user-select: none;
+    overflow: hidden;
+    &-maximized {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__content {
+    height: calc(100% - 32px);
+    background-color: #fff;
+    width: 100%;
+    position: relative;
+    &-map {
+      height: 100%;
+      width: 100%;
+    }
+    // padding: 0.25rem;
+    // resize: none;
+    // font-size: 0.9rem;
+    &-details {
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      right: 0;
+      padding: 0.2rem 0.5rem;
+      color: #fff;
+      border-radius: 4px 4px 0 0;
+      backdrop-filter: blur(10px);
+      background-color: rgba(2, 2, 2, 0.795);
+    }
+  }
+}

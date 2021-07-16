@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./style.scss";
+import Music from "../../../../../assets/appIcon/music.svg";
 import Calculator from "../../../../../assets/appIcon/calc.svg";
 import Calendar from "../../../../../assets/appIcon/calendar.svg";
 import Camera from "../../../../../assets/appIcon/camera.svg";
 import Notepad from "../../../../../assets/appIcon/notepad.svg";
 import Ide from "../../../../../assets/appIcon/ide.svg";
 import Chat from "../../../../../assets/appIcon/chat.png";
+import Maps from "../../../../../assets/appIcon/maps.svg";
 import Browser from "../../../../../assets/appIcon/browser.svg";
 import ContextMenu from "../../../Common/ContextMenu";
 
@@ -27,6 +29,10 @@ const getIcon = (name) => {
       return Chat;
     case "Browser":
       return Browser;
+    case "Music Player":
+      return Music;
+    case "Maps":
+      return Maps;
   }
 };
 export default function CurrentTasks() {

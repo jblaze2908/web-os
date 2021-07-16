@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import "./style.scss";
 import {
   focusApp,
   dragApp,
@@ -104,9 +105,12 @@ class DraggableContainer extends Component {
 
     return (
       <div
-        className="movable__container"
+        className={
+          "movable__container" +
+          (!this.props.show ? " movable__container-hide" : "")
+        }
         style={{
-          display: this.props.show ? "block" : "none",
+          // display: this.props.show ? "block" : "none",
           position: "absolute",
           top: this.state.maximized ? 0 : position.top,
           left: this.state.maximized ? 0 : position.left,

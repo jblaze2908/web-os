@@ -5,7 +5,7 @@ import Hide from "../../../../assets/svg/hide.svg";
 import Sq from "../../../../assets/svg/sq.svg";
 import { exitApp, minimizeApp } from "../../../../actions/tasks";
 import "./styles.scss";
-
+import Music from "../../../../assets/appIcon/music.svg";
 import Calculator from "../../../../assets/appIcon/calc.svg";
 import Calendar from "../../../../assets/appIcon/calendar.svg";
 import Camera from "../../../../assets/appIcon/camera.svg";
@@ -13,6 +13,7 @@ import Notepad from "../../../../assets/appIcon/notepad.svg";
 import Ide from "../../../../assets/appIcon/ide.svg";
 import Chat from "../../../../assets/appIcon/chat.png";
 import Browser from "../../../../assets/appIcon/browser.svg";
+import Maps from "../../../../assets/appIcon/maps.svg";
 export default function TitleBar(props) {
   const {
     label,
@@ -42,6 +43,10 @@ export default function TitleBar(props) {
         return Chat;
       case "Browser":
         return Browser;
+      case "Music Player":
+        return Music;
+      case "Maps":
+        return Maps;
     }
   };
   return (

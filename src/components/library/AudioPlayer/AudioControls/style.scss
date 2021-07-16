@@ -1,0 +1,83 @@
+.audiocontrols {
+  &__container {
+    background-color: rgba(39, 38, 38, 0.356);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0.75rem;
+  }
+  &__song {
+    display: flex;
+    width: 13rem;
+    align-items: center;
+
+    &-art {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 1rem;
+      border-radius: 50%;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+      & img {
+        width: 100%;
+      }
+    }
+    &-details {
+      &-name {
+        font-weight: 800;
+        margin-bottom: 0.2rem;
+      }
+      font-weight: 100;
+    }
+  }
+  &__controls {
+    display: flex;
+    align-items: center;
+    &-btns {
+      display: flex;
+      align-items: center;
+      &-prev {
+        transform: rotate(180deg);
+      }
+      &-prev,
+      &-next {
+        width: 1.3rem;
+        height: 1.3rem;
+        cursor: pointer;
+        filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+      }
+      &-playback {
+        margin: 0 0.7rem;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        width: 2.6rem;
+        height: 2.6rem;
+        filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+      }
+    }
+    &-seekbar {
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+      &-body {
+        margin: 0 1rem;
+        width: 18rem;
+      }
+    }
+  }
+  &__listbtn {
+    display: flex;
+    align-items: center;
+    width: 1.4rem;
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.2));
+    margin-left: 1rem;
+    cursor: pointer;
+    opacity: 0.3;
+    &-active {
+      opacity: 1;
+    }
+  }
+}

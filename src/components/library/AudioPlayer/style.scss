@@ -1,0 +1,25 @@
+.audio {
+  &__container {
+    margin: 1rem;
+    height: 35rem;
+    background-color: rgba(29, 28, 28, 0.37);
+
+    width: fit-content;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    user-select: none;
+    overflow: hidden;
+    &-maximized {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__textarea {
+    height: calc(100% - 32px);
+    width: 100%;
+    padding: 0.25rem;
+    resize: none;
+    font-size: 0.9rem;
+  }
+}

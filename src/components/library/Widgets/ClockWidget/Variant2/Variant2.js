@@ -14,11 +14,11 @@ export default function Variant2(props) {
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   const [colors, setColors] = useState({
-    color1a: "#ffffff",
-    color1b: "#a6cecd",
+    color1a: localStorage.getItem("color1a") || "#ffffff",
+    color1b: localStorage.getItem("color1b") || "#a6cecd",
 
-    color2a: "#5bfbe0",
-    color2b: "#6dcbf3",
+    color2a: localStorage.getItem("color2a") || "#5bfbe0",
+    color2b: localStorage.getItem("color2b") || "#6dcbf3",
   });
   const openContextMenu = (e) => {
     e.preventDefault();
@@ -33,15 +33,19 @@ export default function Variant2(props) {
     let color = { ...colors };
     switch (type) {
       case "1a":
+        localStorage.setItem("color1a", val);
         color.color1a = val;
         break;
       case "1b":
+        localStorage.setItem("color1b", val);
         color.color1b = val;
         break;
       case "2a":
+        localStorage.setItem("color2a", val);
         color.color2a = val;
         break;
       case "2b":
+        localStorage.setItem("color2b", val);
         color.color2b = val;
         break;
       default:

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import TitleBar from "../Common/TitleBar";
 import CameraDisplay from "./CameraDisplay";
 import CameraControls from "./CameraControls";
+import ImgViewer from "./ImgViewer";
 import "./styles.scss";
 
 export default function CameraApp(props) {
@@ -11,6 +12,7 @@ export default function CameraApp(props) {
   const { startDragging, maximize, minimize, maximized, _id } = props;
   const [loaded, setLoaded] = useState(false);
   const [stream, enableStream] = useState(null);
+  const [image, setImage] = useState(null);
   const [vidDimensions, setVidDimensions] = useState({
     vidObj: null,
     height: 0,
@@ -44,7 +46,7 @@ export default function CameraApp(props) {
       vidDimensions.height
     );
     let data = canvasEl.toDataURL("image/png");
-    pic.current.src = data;
+    setImage(data);
   };
   const streamError = (error) => {};
   useEffect(() => {
@@ -81,14 +83,24 @@ export default function CameraApp(props) {
         _id={_id}
         startDragging={startDragging}
       />
-      <CameraDisplay
-        loaded={loaded}
-        stream={stream}
-        callback={getVideoDimension}
-      />
-      <CameraControls clickImg={clickImg} />
+      {image ? (
+        <ImgViewer
+          src={image}
+          goBack={() => {
+            setImage(null);
+          }}
+        />
+      ) : (
+        <>
+          <CameraDisplay
+            loaded={loaded}
+            stream={stream}
+            callback={getVideoDimension}
+          />
+          <CameraControls clickImg={clickImg} />
+        </>
+      )}
       <canvas ref={canvas} style={{ display: "none" }}></canvas>
-      {/* <img ref={pic} src="" alt="" /> */}
     </div>
   );
 }

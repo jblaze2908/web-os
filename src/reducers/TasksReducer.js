@@ -16,21 +16,35 @@ const TasksReducer = (state = initialState, action) => {
   let currentTasks, index, newProperties;
   switch (action.type) {
     case "LAUNCH_APP":
-      let newTask = {
-        _id: action.payload._id,
-        name: action.payload.name,
-        position: {
-          top: 10,
-          left: 10,
-        },
-        maximized: true,
-      };
       currentTasks = [...state.currentTasks];
-      currentTasks.push(newTask);
-      return {
-        focusedEl: action.payload._id,
-        currentTasks,
-      };
+      index = currentTasks.findIndex(
+        (task) => task.name === action.payload.name
+      );
+      if (index === -1) {
+        let newTask = {
+          _id: action.payload._id,
+          name: action.payload.name,
+          position: {
+            top: 10,
+            left: 10,
+          },
+          maximized: true,
+        };
+        currentTasks = [...state.currentTasks];
+        currentTasks.push(newTask);
+        return {
+          focusedEl: action.payload._id,
+          currentTasks,
+        };
+      } else {
+        newProperties = { ...currentTasks[index] };
+        newProperties.maximized = true;
+        currentTasks[index] = newProperties;
+        return {
+          focusedEl: newProperties._id,
+          currentTasks,
+        };
+      }
 
     case "FOCUS_APP":
       return { ...state, focusedEl: action.payload };

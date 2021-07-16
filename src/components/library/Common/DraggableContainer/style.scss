@@ -1,0 +1,16 @@
+.movable__container {
+  transition: transform 0.3s, opacity 0.3s;
+  &-hide {
+    opacity: 0;
+    transform: scale(0.25, 0.5) translateY(20rem);
+    pointer-events: none;
+  }
+  //   @keyframes hide {
+  //     from {
+  //       display: block;
+  //     }
+  //     to {
+  //       display: none;
+  //     }
+  //   }
+}

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Power from "../../../assets/svg/power.svg";
 import Github from "../../../assets/appIcon/github.svg";
 import LinkedIn from "../../../assets/appIcon/linkedin.svg";
+import Maps from "../../../assets/appIcon/maps.svg";
 import Calculator from "../../../assets/appIcon/calc.svg";
 import Calendar from "../../../assets/appIcon/calendar.svg";
 import Camera from "../../../assets/appIcon/camera.svg";
@@ -10,6 +11,8 @@ import Notepad from "../../../assets/appIcon/notepad.svg";
 import Ide from "../../../assets/appIcon/ide.svg";
 import Chat from "../../../assets/appIcon/chat.png";
 import Browser from "../../../assets/appIcon/browser.svg";
+import Music from "../../../assets/appIcon/music.svg";
+// import Maps from ";
 import Guest from "../../../assets/svg/guest.svg";
 import { launchApp } from "../../../actions/tasks";
 import { v4 as uuidv4 } from "uuid";
@@ -99,6 +102,8 @@ export default function AppDrawer(props) {
             <AppIcon src={Calculator} name="Calculator" launchApp={startApp} />
             <AppIcon src={Calendar} name="Calendar" launchApp={startApp} />
             <AppIcon src={Camera} name="Camera" launchApp={startApp} />
+            <AppIcon src={Maps} name="Maps" launchApp={startApp} />
+            <AppIcon src={Music} name="Music Player" launchApp={startApp} />
             <AppIcon src={Notepad} name="Notepad" launchApp={startApp} />
             <AppIcon src={Ide} name="IDE" launchApp={startApp} />
             <AppIcon src={Chat} name="Chat" launchApp={startApp} />
