@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import TitleBar from "../Common/TitleBar";
 import mapboxgl from "mapbox-gl";
+
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "./styles.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 export default function Maps(props) {
   mapboxgl.accessToken =
